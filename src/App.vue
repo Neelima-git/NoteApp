@@ -1,34 +1,35 @@
+<script setup>
+  import {ref} from "vue";
+  const showModal = ref(false);
+</script>
+
 <template>
   <main>
-    <div class="overlay">
+    <div v-show="showModal" class="overlay">
       <div class="modal">
         <textarea name="note" id="note" cols="30" rows="10"></textarea>
         <button>Add Note</button>
+        <button class="close" @click="showModal=false">Close</button>
       </div>
     </div>
     <div class="container">
       <header>
         <h1>Notes</h1>
-        <button>+</button>
+        <button @click="showModal = true">+</button>
       </header>
         <div class="cards-container">
           <div class="card">
-            <p class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint laborum suscipit, dolor porro est quibusdam. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit omnis quo voluptate ratione alias deserunt dolorum quia, temporibus, porro, veritatis commodi atque? Nemo tempore expedita vero quis, eius adipisci at.</p>
-            <p class="date"></p>
+            <p class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p>
+            <p class="date">20/05/2023</p>
           </div>
           <div class="card">
             <p class="main-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sint laborum suscipit, dolor porro est quibusdam.</p>
-            <p class="date"></p>
+            <p class="date">21/05/2023</p>
           </div>
         </div>
     </div>
   </main>
 </template>
-
-<script setup>
-  import {ref} from "vue";
-  const count = ref(0);
-</script>
 
 <style scoped>
   .container{
@@ -69,7 +70,7 @@
     height: 50px;
     cursor: pointer;
     background-color: rgb(21, 20, 20);
-    border-radius: 100;
+    border-radius: 50%;
     color: white;
     font-size: 20px;
   }
@@ -95,5 +96,19 @@
     position: relative;
     display: flex;
     flex-direction: column;
+  }
+  .modal button{
+    padding: 10px 20px;
+    font-size: 20px;
+    width: 100%;
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  .modal .close{
+    background-color: rgb(193, 15, 15);
+    margin-top: 7px;
   }
 </style>
