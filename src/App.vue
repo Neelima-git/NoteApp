@@ -30,7 +30,7 @@ const addNote = () => {
 </script>
 
 <template>
-  <main class="h-screen w-screen">
+  <main class="h-screen w-screen bg-blue-100">
     <div v-show="showModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
       <div class="w-96 bg-white rounded-lg p-6">
         <textarea v-model.trim="newNoteInput" name="note" id="note" cols="30" rows="10" class="w-full h-32 p-2 text-lg"></textarea>
@@ -45,7 +45,7 @@ const addNote = () => {
         <button @click="showModal = true" class="w-16 h-16 bg-black rounded-full text-white text-4xl flex items-center justify-center">+</button>
       </header>
       <div class="flex flex-wrap -mr-4 -mb-4 p-4">
-        <div v-for="note in notes" :key="note.id" class="card mr-4 mb-4 p-2  w-56 max-h-64 overflow-y-auto" :style="{ backgroundColor: note.backgroundColor }">
+        <div v-for="note in notes" :key="note.id" class="card mr-4 mb-4 p-2  w-56 max-h-64 overflow-y-auto rounded-md" :style="{ backgroundColor: note.backgroundColor }">
           <p class="main-text whitespace-wrap break-words">{{ note.text }}</p>
           <p class="date">{{ note.date.toLocaleDateString("en-US") }}</p>
         </div>
